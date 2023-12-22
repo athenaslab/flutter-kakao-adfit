@@ -12,11 +12,11 @@ abstract class AdViewFactory private constructor(private val messenger: BinaryMe
     : PlatformViewFactory(JSONMessageCodec.INSTANCE) {
 
     var activity: Activity? = null
-    private var adView: PlatformView? = null
+    private var adView: NativeAdView? = null
 
-    override fun create(context: Context, id: Int, args: Any?): PlatformView? {
+    override fun create(context: Context, id: Int, args: Any?): NativeAdView? {
         activity?.let {
-            adView = PlatformView(it, messenger, id, args)
+            adView = NativeAdView(it, messenger, id, args)
         }
         return adView
     }
