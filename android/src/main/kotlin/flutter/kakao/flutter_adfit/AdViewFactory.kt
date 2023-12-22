@@ -14,7 +14,7 @@ abstract class AdViewFactory private constructor(private val messenger: BinaryMe
     var activity: Activity? = null
     private var adView: NativeAdView? = null
 
-    override fun create(context: Context, id: Int, args: Any?): NativeAdView? {
+    fun create(context: Context, id: Int, args: Any?): NativeAdView? {
         activity?.let {
             adView = NativeAdView(it, messenger, id, args)
         }
