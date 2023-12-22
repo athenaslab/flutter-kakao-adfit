@@ -21,6 +21,11 @@ class AdViewFactory private constructor(private val messenger: BinaryMessenger, 
         return adView
     }
 
+    override fun create(context: Context, id: Int, args: Any): PlatformView? {
+        super.create(context, id, args)
+        
+    }
+
     fun onDestroy() {
         adView?.dispose()
     }
