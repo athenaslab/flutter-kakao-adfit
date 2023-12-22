@@ -14,8 +14,7 @@ class AdViewFactory(private val messenger: BinaryMessenger, private val appConte
     var activity: Activity? = null
     private var adView: NativeAdView? = null
 
-    override fun create(context: Context, id: Int, args: Any): NativeAdView? {
-        super.create()
+    override fun create(context: Context, id: Int, args: Any): PlatformView {
         activity?.let {
             adView = NativeAdView(it, messenger, id, args)
         }
