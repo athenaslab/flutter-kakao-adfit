@@ -14,7 +14,7 @@ import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
 /** FlutterAdfitPlugin */
 class FlutterAdfitPlugin: FlutterPlugin, ActivityAware {
 
-  private lateinit var adViewFactory : AdViewFactory
+  lateinit var adViewFactory : AdViewFactory
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     adViewFactory = AdViewFactory.registerWith(flutterPluginBinding)
