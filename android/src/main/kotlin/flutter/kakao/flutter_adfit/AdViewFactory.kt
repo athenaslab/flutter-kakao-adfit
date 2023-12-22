@@ -12,11 +12,11 @@ abstract class AdViewFactory private constructor(private val messenger: BinaryMe
     : PlatformViewFactory(JSONMessageCodec.INSTANCE) {
 
     var activity: Activity? = null
-    private var adView: NativeAdView? = null
+    private var adView: PlatformView? = null
 
-    override fun create(context: Context, id: Int, args: Any?): NativeAdView? {
+    override fun create(context: Context, id: Int, args: Any?): PlatformView? {
         activity?.let {
-            adView = NativeAdView(it, messenger, id, args)
+            adView = PlatformView(it, messenger, id, args)
         }
         return adView
     }
@@ -30,7 +30,7 @@ abstract class AdViewFactory private constructor(private val messenger: BinaryMe
          * Flutter Android v1 API (using Registrar)
          */
         fun registerWith(registrar: Registrar): AdViewFactory {
-            val plugin = AdViewFactory(registrar.messenger(), registrar.context())
+            val plugin : AdViewFactory = AdViewFactory(registrar.messenger(), registrar.context())
             registrar.platformViewRegistry().registerViewFactory("flutter.kakao.adfit/AdFitView", plugin)
             registrar.addViewDestroyListener {
                 plugin.onDestroy()
@@ -43,7 +43,7 @@ abstract class AdViewFactory private constructor(private val messenger: BinaryMe
          * Flutter Android v2 API (using FlutterPluginBinding)
          */
         fun registerWith(flutterPluginBinding: FlutterPluginBinding): AdViewFactory {
-            val plugin = AdViewFactory(flutterPluginBinding.binaryMessenger,
+            val plugin : AdViewFactory = AdViewFactory(flutterPluginBinding.binaryMessenger,
                     flutterPluginBinding.applicationContext)
             flutterPluginBinding.platformViewRegistry.registerViewFactory(
                     "flutter.kakao.adfit/AdFitView", plugin)
