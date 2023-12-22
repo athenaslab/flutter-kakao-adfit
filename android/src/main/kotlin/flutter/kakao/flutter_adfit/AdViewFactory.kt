@@ -8,13 +8,13 @@ import io.flutter.plugin.common.JSONMessageCodec
 import io.flutter.plugin.common.PluginRegistry.Registrar
 import io.flutter.plugin.platform.PlatformViewFactory
 
-internal class AdViewFactory(private val messenger: BinaryMessenger, private val appContext: Context)
+class AdViewFactory(private val messenger: BinaryMessenger, private val appContext: Context)
     : PlatformViewFactory(JSONMessageCodec.INSTANCE) {
 
     var activity: Activity? = null
     private var adView: NativeAdView? = null
 
-    override fun create(context: Context, id: Int, args: Any): NativeAdView? {
+    fun create(context: Context, id: Int, args: Any): NativeAdView? {
         activity?.let {
             adView = NativeAdView(it, messenger, id, args)
         }
