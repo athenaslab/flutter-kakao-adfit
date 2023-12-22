@@ -8,7 +8,7 @@ import io.flutter.plugin.common.JSONMessageCodec
 import io.flutter.plugin.common.PluginRegistry.Registrar
 import io.flutter.plugin.platform.PlatformViewFactory
 
-class AdViewFactory(private val messenger: BinaryMessenger, private val appContext: Context)
+class AdViewFactory private constructor(private val messenger: BinaryMessenger, private val appContext: Context)
     : PlatformViewFactory(JSONMessageCodec.INSTANCE) {
 
     var activity: Activity? = null
