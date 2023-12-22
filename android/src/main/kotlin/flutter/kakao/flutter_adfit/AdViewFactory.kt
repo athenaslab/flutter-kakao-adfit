@@ -31,7 +31,7 @@ abstract class AdViewFactory
          * Flutter Android v1 API (using Registrar)
          */
         fun registerWith(registrar: Registrar): AdViewFactory {
-            val plugin = object: AdViewFactory(registrar.messenger(), registrar.context())
+            val plugin : AdViewFactory = AdViewFactory(registrar.messenger(), registrar.context())
             registrar.platformViewRegistry().registerViewFactory("flutter.kakao.adfit/AdFitView", plugin)
             registrar.addViewDestroyListener {
                 plugin.onDestroy()
@@ -44,7 +44,7 @@ abstract class AdViewFactory
          * Flutter Android v2 API (using FlutterPluginBinding)
          */
         fun registerWith(flutterPluginBinding: FlutterPluginBinding): AdViewFactory {
-            val plugin = object: AdViewFactory(flutterPluginBinding.binaryMessenger,
+            val plugin : AdViewFactory = AdViewFactory(flutterPluginBinding.binaryMessenger,
                     flutterPluginBinding.applicationContext)
             flutterPluginBinding.platformViewRegistry.registerViewFactory(
                     "flutter.kakao.adfit/AdFitView", plugin)
