@@ -14,18 +14,6 @@ class AdViewFactory private constructor(private val messenger: BinaryMessenger, 
     var activity: Activity? = null
     private var adView: NativeAdView? = null
 
-    fun create(context: Context, id: Int, args: Any): NativeAdView? {
-        activity?.let {
-            adView = NativeAdView(it, messenger, id, args)
-        }
-        return adView
-    }
-
-    override fun create(context: Context, id: Int, args: Any): PlatformView? {
-        super.create(context, id, args)
-        
-    }
-
     fun onDestroy() {
         adView?.dispose()
     }
