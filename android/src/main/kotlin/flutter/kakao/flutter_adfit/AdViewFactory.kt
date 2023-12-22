@@ -14,7 +14,7 @@ class AdViewFactory private constructor(private val messenger: BinaryMessenger, 
     var activity: Activity? = null
     private var adView: NativeAdView? = null
 
-    fun create(context: Context, id: Int, args: Any?): NativeAdView? {
+    fun create(context: Context, id: Int, args: Any): NativeAdView? {
         activity?.let {
             adView = NativeAdView(it, messenger, id, args)
         }
