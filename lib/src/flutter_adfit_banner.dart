@@ -86,18 +86,6 @@ class _AdFitBannerState extends State<AdFitBanner>
                     ),
                   )
                 : _buildAdView());
-        if (1.0 < scale) {
-          return Container(
-            alignment: Alignment.center,
-            width: widget.adSize.width * scale,
-            height: widget.adSize.height * scale,
-            child: Transform.scale(
-              scale: scale,
-              child: _buildAdView(),
-            ),
-          );
-        }
-        return _buildAdView();
       });
     }
     debugPrint(
@@ -184,6 +172,8 @@ class _AdFitBannerState extends State<AdFitBanner>
           break;
         case AdFitEvent.OnError:
           visible = false;
+          break;
+        default:
           break;
       }
       widget.listener?.call(eventData.event!, eventData);
