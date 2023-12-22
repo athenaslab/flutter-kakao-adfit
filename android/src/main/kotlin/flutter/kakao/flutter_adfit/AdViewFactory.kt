@@ -16,6 +16,7 @@ abstract class AdViewFactory
     private var adView: NativeAdView? = null
 
     override fun create(context: Context, id: Int, args: Any): NativeAdView? {
+        super.create(context, id, args)
         activity?.let {
             adView = NativeAdView(it, messenger, id, args)
         }
