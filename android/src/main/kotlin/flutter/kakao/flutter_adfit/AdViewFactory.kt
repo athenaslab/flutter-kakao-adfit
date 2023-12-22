@@ -12,7 +12,12 @@ abstract class AdViewFactory private constructor(private val messenger: BinaryMe
     : PlatformViewFactory(JSONMessageCodec.INSTANCE) {
 
     var activity: Activity? = null
-    private var adView: NativeAdView? = null
+    private var adView: PlatformView? = null
+
+    override fun create(context: Context, viewId: Int, args: Any): PlatformView {
+        adView = PlatformView(context, messenger, viewId, args)
+        return adView!!
+    }
 
     fun onDestroy() {
         adView?.dispose()
