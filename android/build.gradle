@@ -49,6 +49,6 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.google.android.gms:play-services-location:21.0.1'
+    implementation 'com.google.android.gms:play-services-ads-identifier:21.0.1'
     implementation "com.kakao.adfit:ads-base:3.13.6"
 }
