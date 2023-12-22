@@ -8,7 +8,7 @@ import io.flutter.plugin.common.JSONMessageCodec
 import io.flutter.plugin.common.PluginRegistry.Registrar
 import io.flutter.plugin.platform.PlatformViewFactory
 
-class AdViewFactory
+internal class AdViewFactory
     private constructor(private val messenger: BinaryMessenger, private val appContext: Context)
     : PlatformViewFactory(JSONMessageCodec.INSTANCE) {
 
@@ -31,7 +31,7 @@ class AdViewFactory
          * Flutter Android v1 API (using Registrar)
          */
         fun registerWith(registrar: Registrar): AdViewFactory {
-            val plugin = AdViewFactory(registrar.messenger(), registrar.activity())
+            val plugin = AdViewFactory(registrar.messenger(), registrar.context())
             registrar.platformViewRegistry().registerViewFactory("flutter.kakao.adfit/AdFitView", plugin)
             registrar.addViewDestroyListener {
                 plugin.onDestroy()
