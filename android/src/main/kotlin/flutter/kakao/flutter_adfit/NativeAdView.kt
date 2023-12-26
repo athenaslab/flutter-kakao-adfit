@@ -15,7 +15,7 @@ import io.flutter.plugin.platform.PlatformView
 import org.json.JSONException
 import org.json.JSONObject
 
-class NativeAdView(private val context: Context, messenger: BinaryMessenger, viewId: Int, arguments: Any)
+class NativeAdView(private val context: Context, messenger: BinaryMessenger, viewId: Int, arguments: Any?)
     : PlatformView, EventChannel.StreamHandler, MethodCallHandler {
     private var adView: BannerAdView? = null
     private var eventSink: EventSink? = null
