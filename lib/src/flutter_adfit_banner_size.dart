@@ -8,9 +8,16 @@ class AdFitBannerSize {
   /// Banner height
   final int height;
 
-  const AdFitBannerSize._(this.width, this.height);
+  // Banner id
+  final String androidId;
+  final String iosId;
 
-  static const AdFitBannerSize LARGE_RECTANGLE = AdFitBannerSize._(300, 250);
-  static const AdFitBannerSize BANNER = AdFitBannerSize._(320, 100);
-  static const AdFitBannerSize SMALL_BANNER = AdFitBannerSize._(320, 50);
+  const AdFitBannerSize._(this.width, this.height, this.androidId, this.iosId);
+
+  static const AdFitBannerSize LARGE_RECTANGLE =
+      AdFitBannerSize._(300, 250, '', '');
+  static const AdFitBannerSize BANNER = AdFitBannerSize._(
+      320, 100, 'DAN-L2r3cdovrQyhwdIp', 'DAN-Ldbp9EbtHaxdUF8U');
+  static const AdFitBannerSize SMALL_BANNER = AdFitBannerSize._(
+      320, 50, 'DAN-3AbbmmvB1swJqQXv', 'DAN-esK418qTQBJoXm2m');
 }
